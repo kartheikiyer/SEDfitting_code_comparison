@@ -29,16 +29,25 @@ DB_id_full = DB_cat[0:,0]
 DB_mass_full = DB_cat[0:,4]
 DB_mass_lo_full = DB_cat[0:,6]
 DB_mass_hi_full = DB_cat[0:,5]
+# uncertainty floor of 0.1 dex
+DB_mass_lo_full[(DB_mass_full - DB_mass_lo_full) < 0.1] = DB_mass_full[(DB_mass_full - DB_mass_lo_full) < 0.1] - 0.1
+DB_mass_hi_full[(DB_mass_hi_full - DB_mass_full) < 0.1] = DB_mass_full[(DB_mass_hi_full - DB_mass_full) < 0.1] + 0.1
 
 # Star Formation Rate
 DB_sfr_full = DB_cat[0:,7]
 DB_sfr_lo_full = DB_cat[0:,9]
 DB_sfr_hi_full = DB_cat[0:,8]
+# uncertainty floor of 0.1 dex
+DB_sfr_lo_full[(DB_sfr_full - DB_sfr_lo_full) < 0.1] = DB_sfr_full[(DB_sfr_full - DB_sfr_lo_full) < 0.1] - 0.1
+DB_sfr_hi_full[(DB_sfr_hi_full - DB_sfr_full) < 0.1] = DB_sfr_full[(DB_sfr_hi_full - DB_sfr_full) < 0.1] + 0.1
 
 # Dust estimate
 DB_Av_full = DB_cat[0:,-2]
 DB_Av_lo_full = DB_cat_dust_uncert[0:,0]
 DB_Av_hi_full = DB_cat_dust_uncert[0:,1]
+# uncertainty floor of 0.1 mags
+DB_Av_lo_full[(DB_Av_full - DB_Av_lo_full) < 0.1] = DB_Av_full[(DB_Av_full - DB_Av_lo_full) < 0.1] - 0.1
+DB_Av_hi_full[(DB_Av_hi_full - DB_Av_full) < 0.1] = DB_Av_full[(DB_Av_hi_full - DB_Av_full) < 0.1] + 0.1
 
 #-------------------partition into small and z1 catalogs-----------------
 

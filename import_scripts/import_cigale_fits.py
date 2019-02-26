@@ -96,8 +96,8 @@ if vb == True:
 
 cigale_sfr_z1_noagn = np.log10(cigale_cat[cigale_mask_z1.astype(bool),23])
 cigale_sfr_err_z1_noagn = np.log10(cigale_cat[cigale_mask_z1.astype(bool),24])
-cigale_sfr_lo_z1_noagn = np.log10(10**cigale_sfr_z1_noagn - 10**cigale_sfr_z1_noagn)
-cigale_sfr_hi_z1_noagn = np.log10(10**cigale_sfr_z1_noagn + 10**cigale_sfr_z1_noagn)
+cigale_sfr_lo_z1_noagn = np.log10(10**cigale_sfr_z1_noagn - 10**cigale_sfr_err_z1_noagn)
+cigale_sfr_hi_z1_noagn = np.log10(10**cigale_sfr_z1_noagn + 10**cigale_sfr_err_z1_noagn)
 if vb == True:
     plt.hist(cigale_sfr_z1_noagn)
     plt.show()
@@ -183,8 +183,8 @@ if vb == True:
 
 cigale_sfr_z1_wagn = np.log10(cigale_cat[cigale_mask_z1.astype(bool),29])
 cigale_sfr_err_z1_wagn = np.log10(cigale_cat[cigale_mask_z1.astype(bool),30])
-cigale_sfr_lo_z1_wagn = np.log10(10**cigale_sfr_z1_wagn - 10**cigale_sfr_z1_wagn)
-cigale_sfr_hi_z1_wagn = np.log10(10**cigale_sfr_z1_wagn + 10**cigale_sfr_z1_wagn)
+cigale_sfr_lo_z1_wagn = np.log10(10**cigale_sfr_z1_wagn - 10**cigale_sfr_err_z1_wagn)
+cigale_sfr_hi_z1_wagn = np.log10(10**cigale_sfr_z1_wagn + 10**cigale_sfr_err_z1_wagn)
 if vb == True:
     plt.hist(cigale_sfr_z1_wagn)
     plt.show()

@@ -39,8 +39,8 @@ magphys_mass_full = magphys_cat[0:,8]
 magphys_mass_full_low = magphys_cat[0:,7]
 magphys_mass_full_high = magphys_cat[0:,9]
 
-magphys_sfr_full = magphys_cat[0:,16]
-magphys_sfr_full_low = magphys_cat[0:,17]
+magphys_sfr_full = magphys_cat[0:,17]
+magphys_sfr_full_low = magphys_cat[0:,16]
 magphys_sfr_full_high = magphys_cat[0:,18]
 
 magphys_Av_full = magphys_cat[0:,23]

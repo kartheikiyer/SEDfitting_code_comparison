@@ -50,10 +50,16 @@ sed3fit_id_z1 = sed3fit_z1_cat[0:,0]
 sed3fit_mass_z1 = sed3fit_z1_cat[0:,8]
 sed3fit_mass_z1_low = sed3fit_z1_cat[0:,7]
 sed3fit_mass_z1_high = sed3fit_z1_cat[0:,9]
+# 0.1 dex uncertainty floor
+sed3fit_mass_z1_low[(sed3fit_mass_z1 - sed3fit_mass_z1_low) < 0.1] = sed3fit_mass_z1[(sed3fit_mass_z1 - sed3fit_mass_z1_low) < 0.1] - 0.1
+sed3fit_mass_z1_high[(sed3fit_mass_z1_high - sed3fit_mass_z1) < 0.1] = sed3fit_mass_z1[(sed3fit_mass_z1_high - sed3fit_mass_z1) < 0.1] + 0.1
 
 sed3fit_sfr_z1 = (sed3fit_z1_cat[0:,14])
 sed3fit_sfr_z1_low = (sed3fit_z1_cat[0:,13])
 sed3fit_sfr_z1_high = (sed3fit_z1_cat[0:,15])
+# 0.1 dex uncertainty floor
+sed3fit_sfr_z1_low[(sed3fit_sfr_z1 - sed3fit_sfr_z1_low) < 0.1] = sed3fit_sfr_z1[(sed3fit_sfr_z1 - sed3fit_sfr_z1_low) < 0.1] - 0.1
+sed3fit_sfr_z1_high[(sed3fit_sfr_z1_high - sed3fit_sfr_z1) < 0.1] = sed3fit_sfr_z1[(sed3fit_sfr_z1_high - sed3fit_sfr_z1) < 0.1] + 0.1
 
 sed3fit_av_z1 = sed3fit_z1_cat[0:,16]
 sed3fit_av_z1_low = sed3fit_z1_cat[0:,16]-0.1

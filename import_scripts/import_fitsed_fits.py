@@ -63,8 +63,8 @@ brett_mass_hi_full = brett_cat[0:,19]
 
 # Star Formation Rate
 brett_sfr_full = brett_cat[0:,20]
-brett_sfr_lo_full = brett_cat[0:,21]
-brett_sfr_hi_full = brett_cat[0:,22]
+brett_sfr_lo_full = brett_cat[0:,22] # this one is switched - hi then lo, as opposed to everything else!
+brett_sfr_hi_full = brett_cat[0:,21]
 
 # Dust estimate
 brett_Av_full = brett_cat[0:,11]*4.05
@@ -163,9 +163,9 @@ brett_sfr_lo_full = brett_cat[0:,21]
 brett_sfr_hi_full = brett_cat[0:,22]
 
 # Dust estimate
-brett_Av_full = brett_cat[0:,11]*4.05
-brett_Av_lo_full = brett_cat[0:,12]*4.05
-brett_Av_hi_full = brett_cat[0:,13]*4.05
+brett_Av_full = brett_cat[0:,11]*4.066
+brett_Av_lo_full = brett_cat[0:,12]*4.066
+brett_Av_hi_full = brett_cat[0:,13]*4.066
 
 # some of the dust values are -400, setting these to Number_of_bands_used
 brett_Av_full[brett_Av_full < 0] = np.nan
