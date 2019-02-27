@@ -355,21 +355,28 @@ print('imported cigale fits.')
 #-------------------------------------------------------------------------------
 #--------------NEW CIGALE z=3 FITS (from Kasia)---------------------------------
 #-------------------------------------------------------------------------------
+#
+# c_z3_wagn = fits.open('code_outputs/cigale_results_withAGN_z3.fits') #161R x 8C
+#
+# cigale_z3_wagn_ids = c_z3_wagn[1].data['id']
+# cigale_z3_wagn_mass = np.log10(c_z3_wagn[1].data['bayes.stellar.m_star'])
+# cigale_z3_wagn_sfr = np.log10(c_z3_wagn[1].data['bayes.sfh.sfr10Myrs'])
+# cigale_z3_wagn_Av = c_z3_wagn[1].data['bayes.attenuation.bessell_b']
+#
+# c_z3_wagn.close()
+#
+# c_z3_noagn = fits.open('code_outputs/cigale_results_withoutAGN_z3.fits') #161R x 8C
+#
+# cigale_z3_noagn_ids = c_z3_noagn[1].data['id']
+# cigale_z3_noagn_mass = np.log10(c_z3_noagn[1].data['bayes.stellar.m_star'])
+# cigale_z3_noagn_sfr = np.log10(c_z3_noagn[1].data['bayes.sfh.sfr10Myrs'])
+# cigale_z3_noagn_Av = c_z3_noagn[1].data['bayes.attenuation.bessell_b']
+#
+# c_z3_noagn.close()
 
-c_z3_wagn = fits.open('code_outputs/cigale_results_withAGN_z3.fits') #161R x 8C
+cigale_z3_cat = np.genfromtxt('code_outputs/cigale_27feb_results_z3.dat')
 
-cigale_z3_wagn_ids = c_z3_wagn[1].data['id']
-cigale_z3_wagn_mass = np.log10(c_z3_wagn[1].data['bayes.stellar.m_star'])
-cigale_z3_wagn_sfr = np.log10(c_z3_wagn[1].data['bayes.sfh.sfr10Myrs'])
-cigale_z3_wagn_Av = c_z3_wagn[1].data['bayes.attenuation.bessell_b']
-
-c_z3_wagn.close()
-
-c_z3_noagn = fits.open('code_outputs/cigale_results_withoutAGN_z3.fits') #161R x 8C
-
-cigale_z3_noagn_ids = c_z3_noagn[1].data['id']
-cigale_z3_noagn_mass = np.log10(c_z3_noagn[1].data['bayes.stellar.m_star'])
-cigale_z3_noagn_sfr = np.log10(c_z3_noagn[1].data['bayes.sfh.sfr10Myrs'])
-cigale_z3_noagn_Av = c_z3_noagn[1].data['bayes.attenuation.bessell_b']
-
-c_z3_noagn.close()
+cigale_z3_noagn_ids = cigale_z3_cat[0:,0]
+cigale_z3_noagn_mass = cigale_z3_cat[0:,1]
+cigale_z3_noagn_sfr = cigale_z3_cat[0:,3]
+cigale_z3_noagn_Av = cigale_z3_cat[0:,5]
