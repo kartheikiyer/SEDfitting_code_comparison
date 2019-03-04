@@ -366,9 +366,9 @@ bagpipes_sfr_hi_z1 = np.log10(bagpipes_cat_z1[0:,33])
 #--------------------------------------------------------
 
 #c1 = fits.open('code_outputs_IR/cigale_without_IR_without_AGNs_results.fits')
-#c1 = fits.open('code_outputs_IR/cigale_noIR_noAGN_results.fits')
-c1 = fits.open('code_outputs_IR/cigale_new_noIR_withoutAGNs.fits')
-print('importing CIGALE files from Mar 4, 2019')
+c1 = fits.open('code_outputs_IR/cigale_noIR_noAGN_results.fits')
+#c1 = fits.open('code_outputs_IR/cigale_new_noIR_withoutAGNs.fits')
+#print('importing CIGALE files from Mar 4, 2019')
 # c1.info()
 # c1[1].header
 
@@ -392,8 +392,8 @@ c1.close()
 # plt.show()
 
 #c2 = fits.open('code_outputs_IR/cigale_wit_IR_without_AGNs_results.fits')
-#c2 = fits.open('code_outputs_IR/cigale_withIR_noAGN_results.fits')
-c2 = fits.open('code_outputs_IR/cigale_new_withIR_withoutAGNs.fits')
+c2 = fits.open('code_outputs_IR/cigale_withIR_noAGN_results.fits')
+#c2 = fits.open('code_outputs_IR/cigale_new_withIR_withoutAGNs.fits')
 # c2.info()
 
 
@@ -419,8 +419,8 @@ c2.close()
 # plt.show()
 
 #c3 = fits.open('code_outputs_IR/cigale_wit_IR_with_AGNs_results.fits')
-#c3 = fits.open('code_outputs_IR/cigale_withIR_withAGN_results.fits')
-c3 = fits.open('code_outputs_IR/cigale_new_withIR_withAGNs.fits')
+c3 = fits.open('code_outputs_IR/cigale_withIR_withAGN_results.fits')
+#c3 = fits.open('code_outputs_IR/cigale_new_withIR_withAGNs.fits')
 # c3.info()
 
 
