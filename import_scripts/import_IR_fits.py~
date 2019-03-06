@@ -447,11 +447,6 @@ c3.close()
 #--------------------------------------------------------
 
 #sed3fit_cat = np.genfromtxt('code_outputs_IR/RIVERSIDE_z1_SED3FIT_RESULTS_8_2.dat')
-#sed3fit_mass = sed3fit_cat[0:,8]
-#sed3fit_sfr = sed3fit_cat[0:,11]
-#sed3fit_av = sed3fit_cat[0:,16]
-
-
 sed3fit_cat = np.genfromtxt('code_outputs_IR/RIVERSIDE_z1_NO_IR_SED3FIT_RESULTS_10_10.dat')
 # print(sed3fit_cat.shape)
 
@@ -463,19 +458,9 @@ sed3fit_cat = np.genfromtxt('code_outputs_IR/RIVERSIDE_z1_NO_IR_SED3FIT_RESULTS_
 # SFR16_8   SFR50_8   SFR84_8
 # Av Av_std
 
-sed3fit_mass = np.zeros((len(cat_z1_ids),))
-sed3fit_sfr = np.zeros((len(cat_z1_ids),))
-sed3fit_av = np.zeros((len(cat_z1_ids),))
-sed3fit_agnfracs = np.zeros((len(cat_z1_ids),))
-
-sed3fit_internal_id = sed3fit_cat[0:,0]
-for i in range(len(sed3fit_internal_id)):
-    id_index = np.argmin(np.abs(sed3fit_internal_id[i] - cat_z1_ids))
-    sed3fit_mass[id_index] = sed3fit_cat[0:,8][i]
-    sed3fit_sfr[id_index] = sed3fit_cat[0:,14][i] # update to SFR100 instead of SFR10
-    sed3fit_av[id_index] = sed3fit_cat[0:,16][i]
-    sed3fit_agnfracs[id_index] = sed3fit_cat[0:,18][i]
-
+sed3fit_mass = sed3fit_cat[0:,8]
+sed3fit_sfr = sed3fit_cat[0:,11]
+sed3fit_av = sed3fit_cat[0:,16]
 
 # plt.scatter(sed3fit_mass, sed3fit_sfr,c=sed3fit_av,cmap='magma')
 # plt.show()
@@ -485,23 +470,9 @@ sed3fit_cat = np.genfromtxt('code_outputs_IR/RIVERSIDE_z1_ONLY_IR_SED3FIT_RESULT
 # print(sed3fit_ir_cat.shape)
 
 
-# sed3fit_ir_mass = sed3fit_ir_cat[0:,8]
-# sed3fit_ir_sfr = sed3fit_ir_cat[0:,11]
-# sed3fit_ir_av = sed3fit_ir_cat[0:,16]
-
-sed3fit_ir_mass = np.zeros((len(cat_z1_ids),))
-sed3fit_ir_sfr = np.zeros((len(cat_z1_ids),))
-sed3fit_ir_av = np.zeros((len(cat_z1_ids),))
-sed3fit_ir_agnfracs = np.zeros((len(cat_z1_ids),))
-
-sed3fit_internal_id = sed3fit_cat[0:,0]
-for i in range(len(sed3fit_internal_id)):
-    id_index = np.argmin(np.abs(sed3fit_internal_id[i] - cat_z1_ids))
-    sed3fit_ir_mass[id_index] = sed3fit_cat[0:,8][i]
-    sed3fit_ir_sfr[id_index] = sed3fit_cat[0:,14][i] # update to SFR100 instead of SFR10
-    sed3fit_ir_av[id_index] = sed3fit_cat[0:,16][i]
-    sed3fit_ir_agnfracs[id_index] = sed3fit_cat[0:,18][i]
-
+sed3fit_ir_mass = sed3fit_ir_cat[0:,8]
+sed3fit_ir_sfr = sed3fit_ir_cat[0:,11]
+sed3fit_ir_av = sed3fit_ir_cat[0:,16]
 
 # plt.scatter(sed3fit_ir_mass, sed3fit_ir_sfr,c=sed3fit_ir_av,cmap='magma')
 # plt.show()
