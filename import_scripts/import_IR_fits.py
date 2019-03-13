@@ -1,4 +1,5 @@
 import numpy as np
+from astropy.table import Table
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import warnings
@@ -329,36 +330,76 @@ magphys_IR_full.close()
 #---------------------BAGPIPES---------------------------
 #--------------------------------------------------------
 
-bagpipes_IR_cat = np.genfromtxt('code_outputs_IR/bagpipes_ucr_z1_ir_results.cat')
+# updated values using files from 11/3
 
-bagpipes_IR_ids = bagpipes_IR_cat[0:,0]
-
-bagpipes_IR_mass = np.log10(bagpipes_IR_cat[0:,32])
-bagpipes_IR_sfr = np.log10(bagpipes_IR_cat[0:,29])
-bagpipes_IR_av = bagpipes_IR_cat[0:,2]
+#
+# bagpipes_IR_cat = np.genfromtxt('code_outputs_IR/bagpipes_ucr_z1_ir_results.cat')
+#
+# bagpipes_IR_ids = bagpipes_IR_cat[0:,0]
+#
+# bagpipes_IR_mass = np.log10(bagpipes_IR_cat[0:,32])
+# bagpipes_IR_sfr = np.log10(bagpipes_IR_cat[0:,29])
+# bagpipes_IR_av = bagpipes_IR_cat[0:,2]
 
 # plt.scatter(bagpipes_IR_mass, bagpipes_IR_sfr, c=bagpipes_IR_av,cmap='magma')
 # plt.axis([8,12,-3,3])
 # plt.show()
 
 
+#
+# bagpipes_cat_z1 = np.genfromtxt('code_outputs/bagpipes_z1_cat_pipes_output.txt')
+# # print(bagpipes_cat_z1.shape)
+#
+# bagpipes_id = bagpipes_cat_z1[0:,0]
+#
+# bagpipes_Av_lo_z1= bagpipes_cat_z1[0:,1]
+# bagpipes_Av_z1 = bagpipes_cat_z1[0:,2]
+# bagpipes_Av_hi_z1 = bagpipes_cat_z1[0:,3]
+#
+# bagpipes_mass_lo_z1 = np.log10(bagpipes_cat_z1[0:,34])
+# bagpipes_mass_z1 = np.log10(bagpipes_cat_z1[0:,35])
+# bagpipes_mass_hi_z1 = np.log10(bagpipes_cat_z1[0:,36])
+#
+# bagpipes_sfr_lo_z1 = np.log10(bagpipes_cat_z1[0:,31])
+# bagpipes_sfr_z1 = np.log10(bagpipes_cat_z1[0:,32])
+# bagpipes_sfr_hi_z1 = np.log10(bagpipes_cat_z1[0:,33])
 
-bagpipes_cat_z1 = np.genfromtxt('code_outputs/bagpipes_z1_cat_pipes_output.txt')
-# print(bagpipes_cat_z1.shape)
+print('importing BAGPIPES files from Mar 11, 2019')
 
-bagpipes_id = bagpipes_cat_z1[0:,0]
+bagpipes_cat_z1 = Table.read('code_outputs/bagpipes_11_3_19_z1_noir.cat', format = 'ascii.commented_header')
+bagpipes_cat_z1.sort('ID')
 
-bagpipes_Av_lo_z1= bagpipes_cat_z1[0:,1]
-bagpipes_Av_z1 = bagpipes_cat_z1[0:,2]
-bagpipes_Av_hi_z1 = bagpipes_cat_z1[0:,3]
+bagpipes_id = bagpipes_cat_z1['ID']
 
-bagpipes_mass_lo_z1 = np.log10(bagpipes_cat_z1[0:,34])
-bagpipes_mass_z1 = np.log10(bagpipes_cat_z1[0:,35])
-bagpipes_mass_hi_z1 = np.log10(bagpipes_cat_z1[0:,36])
+bagpipes_IR_av_lo = bagpipes_cat_z1['dust:Av_16']
+bagpipes_IR_av = bagpipes_cat_z1['dust:Av_50']
+bagpipes_IR_av_hi = bagpipes_cat_z1['dust:Av_84']
 
-bagpipes_sfr_lo_z1 = np.log10(bagpipes_cat_z1[0:,31])
-bagpipes_sfr_z1 = np.log10(bagpipes_cat_z1[0:,32])
-bagpipes_sfr_hi_z1 = np.log10(bagpipes_cat_z1[0:,33])
+bagpipes_IR_mass_lo = bagpipes_cat_z1['stellar_mass_16']
+bagpipes_IR_mass = bagpipes_cat_z1['stellar_mass_50']
+bagpipes_IR_mass_hi = bagpipes_cat_z1['stellar_mass_84']
+
+bagpipes_IR_sfr_lo = np.log10(bagpipes_cat_z1['sfr_16'])
+bagpipes_IR_sfr = np.log10(bagpipes_cat_z1['sfr_50'])
+bagpipes_IR_sfr_hi = np.log10(bagpipes_cat_z1['sfr_84'])
+
+
+bagpipes_cat_z1 = Table.read('code_outputs_IR/bagpipes_11_3_19_z1_ir.cat', format = 'ascii.commented_header')
+bagpipes_cat_z1.sort('ID')
+
+bagpipes_id = bagpipes_cat_z1['ID']
+
+bagpipes_Av_lo_z1= bagpipes_cat_z1['dust:Av_16']
+bagpipes_Av_z1 = bagpipes_cat_z1['dust:Av_50']
+bagpipes_Av_hi_z1 = bagpipes_cat_z1['dust:Av_84']
+
+bagpipes_mass_lo_z1 = bagpipes_cat_z1['stellar_mass_16']
+bagpipes_mass_z1 = bagpipes_cat_z1['stellar_mass_50']
+bagpipes_mass_hi_z1 = bagpipes_cat_z1['stellar_mass_84']
+
+bagpipes_sfr_lo_z1 = np.log10(bagpipes_cat_z1['sfr_16'])
+bagpipes_sfr_z1 = np.log10(bagpipes_cat_z1['sfr_50'])
+bagpipes_sfr_hi_z1 = np.log10(bagpipes_cat_z1['sfr_84'])
 
 
 #--------------------------------------------------------
